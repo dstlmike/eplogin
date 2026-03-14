@@ -1,0 +1,32 @@
+{
+  "name": "express-passport-demo",
+  "version": "1.0.0",
+  "description": "Ensure [Mongo DB](https://www.mongodb.com/download-center/community) is installed and running.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongodb-session": "^3.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-flash": "0.0.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^6.x.x",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobWrenn/express-passport-demo.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/JacobWrenn/express-passport-demo/issues"
+  },
+  "homepage": "https://github.com/JacobWrenn/express-passport-demo#readme"
+}
