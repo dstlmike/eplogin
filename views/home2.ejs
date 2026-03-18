@@ -174,7 +174,7 @@ position: absolute;
 <p><br><br></p>
 <hr>
 <p><br><br></p>
-<form action="/imgg" method="POST" enctype="multipart/form-data">
+<form action="/imgggg" method="POST" enctype="multipart/form-data">
 
               <label for="image">Upload Image</label>
               <input type="file" id="image" name="image" accept="image/*" required />
@@ -198,7 +198,7 @@ position: absolute;
             <% items.forEach(item => { %>
 
                     <img src="data:<%= item.img.contentType %>;base64,<%= item.img.data.toString('base64') %>"/>
-<h2><%= item.address %><br><br></h2>
+<h2><%= item.addresss[0].obj.address %><br><br></h2>
 
 
             <% }); %>

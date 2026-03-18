@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
+
 var routes = express();
 var bodyParser = require('body-parser');
 var axios = require('axios');
@@ -161,6 +162,65 @@ app.get('/hi', loggedIn, (req, res) => {
   //res.render('index.ejs', { email: req.user.email })
 })
 
+app.get('/imgg', loggedIn, async function(req, res) {
+  const existingDoc = await imggSchema.findOne({"address":"none"});
+  for (var i = 1; i < 5; i++) {
+    console.log(i);
+  }
+  imggSchema.find({})
+      .then(data => {
+          res.render('home1.ejs', { items: data })
+      })
+      .catch(err => console.log(err));
+})
+
+app.post('/imgg', loggedIn, upload.single('image'), async function(req, res, next) {
+var appp = imggSchema.findOne({"address": req.body.description})
+const existingDoc = await imggSchema.findOne({"address":req.body.description});
+
+for (var i = 1; i < 2; i++) {
+//for (var i = 1; i < 5; i++) {
+if (existingDoc == null || existingDoc.address == req.body.description) {
+  console.log("Document has beed added to database");
+
+
+  const obj = {
+
+  address: req.body.description + i,
+      img: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+          description: req.body.description
+      }
+
+  };
+    imggSchema.create(obj)
+
+        .then(item => {
+          res.redirect('/imgg')
+
+        })
+//}
+} else {
+  console.log("Document exists!");
+
+    imggSchema.updateOne({"address": req.body.description}, {$push: {"addresss": {obj}}})
+
+        .then(item => {
+          console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+//}
+          res.redirect('/imgg')
+
+        })
+
+
+
+      .catch(err => console.log(err));
+    }
+}
+    })
+
+
 app.get('/imggg', loggedIn, async function(req, res) {
   const existingDoc = await imggSchema.findOne({"address":"none"});
 if (existingDoc) {
@@ -168,7 +228,7 @@ if (existingDoc) {
 } else {
   console.log("Document does not exist!");
 }
-
+/*
 async function getDocumentsAsArray(imggSchema) {
   try {
     const collection = imggSchema.collection('images');
@@ -186,7 +246,7 @@ async function getDocumentsAsArray(imggSchema) {
       console.error("Error fetching documents:", error);
     }
   }
-
+*/
 
 
   imggSchema.find({})
@@ -211,7 +271,7 @@ address: req.body.description,
     }
 };
 
-if (existingDoc) {
+if (existingDoc.address == req.body.description) {
 console.log("Document exists!");
 
   imggSchema.updateOne({"address": req.body.description}, {$push: {"addresss": {obj}}})
@@ -230,6 +290,67 @@ console.log("Document had beed added to database");
       .catch(err => console.log(err));
     }
     })
+
+    app.get('/imgggg', loggedIn, async function(req, res) {
+      const existingDoc = await imggSchema.findOne({"address":"none"});
+    if (existingDoc) {
+      console.log(JSON.stringify(existingDoc.address)); //, null, 2));
+    } else {
+      console.log("Document does not exist!");
+    }
+
+
+      imggSchema.find({})
+          .then(data => {
+              res.render('home2.ejs', { items: data })
+          })
+          .catch(err => console.log(err));
+    })
+
+    app.post('/imgggg', loggedIn, upload.single('image'), async function(req, res, next) {
+    var appp = imggSchema.findOne({"address": req.body.description})
+    const existingDoc = await imggSchema.findOne({"address":req.body.description});
+
+    const obj = {
+    address: req.body.description,
+        img: {
+            data: req.file.buffer,
+            contentType: req.file.mimetype,
+            description: req.body.description
+        }
+    };
+
+    if (!existingDoc || existingDoc.address != req.body.description) {
+      console.log("Document had beed added to database");
+        imggSchema.create(obj)
+            .then(item => {
+              res.redirect('/imgggg')
+            })
+
+    } else {
+      console.log("Document exists!");
+
+        imggSchema.updateOne({"address": req.body.description}, {$push: {"addresss": {obj}}})
+
+            .then(item => {
+              console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+
+              res.redirect('/imgggg')
+            })
+
+
+
+          .catch(err => console.log(err));
+        }
+        })
+
+
+
+
+
+
+
+
 
 app.get('/imgg', loggedIn, (req, res) => {
 

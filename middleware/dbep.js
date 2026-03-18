@@ -1,31 +1,4 @@
 
-/*
-const mongoose = require('mongoose');
-var MongoDBStore = require('connect-mongodb-session')(session);
-//var dbt = mongoose.connection;
-const mongoString = process.env.MONGO_DB_S || 'mongodb://dstlmike1:308boonave@ac-oc5e8f9-shard-00-00.dv4owuj.mongodb.net:27017,ac-oc5e8f9-shard-00-01.dv4owuj.mongodb.net:27017,ac-oc5e8f9-shard-00-02.dv4owuj.mongodb.net:27017/passport?ssl=true&replicaSet=atlas-526m7w-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0';
-
-//const mongoString = 'mongodb://dstlmike1:308boonave@ac-oc5e8f9-shard-00-00.dv4owuj.mongodb.net:27017,ac-oc5e8f9-shard-00-01.dv4owuj.mongodb.net:27017,ac-oc5e8f9-shard-00-02.dv4owuj.mongodb.net:27017/passport?ssl=true&replicaSet=atlas-526m7w-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0';
-
-var store = new MongoDBStore({
-  uri: mongoString,
-  collection: 'myImages'
-});
-
-
-mongoose.connect(mongoString, { useNewUrlParser: true, useUnifiedTopology: true });
-const Schema = mongoose.Schema;
-
-const imageSchema = new Schema({
-  email: String,
-  password: String
-});
-
-const Images = mongoose.model('images', imageSchema);
-*/
-
-
-
 
 
 
