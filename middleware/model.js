@@ -1,6 +1,9 @@
 
 const mongoose = require('mongoose');
 const imggSchema = new mongoose.Schema({
+  name: String,
+
+  phone: String,
     address: String,
 addresss: Array,
     img: {

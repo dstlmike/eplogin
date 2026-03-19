@@ -23,7 +23,7 @@ var month = moment().utcOffset(-240).format('MM');
 var day = moment().utcOffset(-240).format('DD');
 //var getIpData = require('../modules/ipdata.js');
 var getAllDocuments = require('../middleware/dbep.js');
-
+var profileAllDocuments = require('../middleware/profilefind.js');
 app.set('trust proxy', true);
 app.use(express.static('partials'));
 app.set('view engine', 'ejs');
@@ -158,7 +158,42 @@ app.get('/', loggedIn, (req, res) => {
 app.get('/hi', loggedIn, (req, res) => {
   var name = "Alex";
   getAllDocuments(name);
-  res.send(name);
+  res.render('profile.ejs') // { items: data })
+  //res.send(name);
+  //res.render('index.ejs', { email: req.user.email })
+})
+
+app.get('/id', loggedIn, async function(req, res, next) {
+  var name = req.body.Name;
+  var address = req.body.address;
+  var phone = req.body.phone;
+  var data;
+  var matchHash = { iname: name, address: address, phone: phone };
+  profileAllDocuments(matchHash)
+
+  .then(data => {
+    res.render('profile.ejs', { items: data, name: req.body.name, address: req.body.address, phone: req.body.phone })
+
+  })
+  .catch(err => console.log(err));
+
+  //res.render('profile.ejs', { items: data, name: req.body.name, address: req.body.address, phone: req.body.phone })
+  //res.render('index.ejs', { email: req.user.email })
+})
+
+app.post('/id', loggedIn, async function(req, res) {
+  var name = req.body.Name;
+  var address = req.body.address;
+  var phone = req.body.phone;
+  var data;
+  var matchHash = { items: data, name: name, address: address, phone: phone };
+  profileAllDocuments(matchHash)
+
+    .then(data => {
+      res.render('profile.ejs', { items: data, name: req.body.name, address: req.body.address, phone: req.body.phone })
+
+    })
+    .catch(err => console.log(err));
   //res.render('index.ejs', { email: req.user.email })
 })
 
