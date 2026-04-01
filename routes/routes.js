@@ -438,7 +438,7 @@ if(appp > 1) {
 
   imggSchema.create(obj)
       .then(item => {
-        res.redirect('/imgg')
+        res.redirect('/imggyes')
       })
 
       .catch(err => console.log(err));
