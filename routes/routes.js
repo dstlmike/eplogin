@@ -197,7 +197,7 @@ app.post('/id', loggedIn, async function(req, res) {
   //res.render('index.ejs', { email: req.user.email })
 })
 
-app.get('/imgg', loggedIn, async function(req, res) {
+app.get('/imggnot', loggedIn, async function(req, res) {
   const existingDoc = await imggSchema.findOne({"address":"none"});
   for (var i = 1; i < 5; i++) {
     console.log(i);
@@ -209,7 +209,7 @@ app.get('/imgg', loggedIn, async function(req, res) {
       .catch(err => console.log(err));
 })
 
-app.post('/imgg', loggedIn, upload.single('image'), async function(req, res, next) {
+app.post('/imggnot', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.description});
 
@@ -232,7 +232,7 @@ if (existingDoc == null || existingDoc.address == req.body.description) {
     imggSchema.create(obj)
 
         .then(item => {
-          res.redirect('/imgg')
+          res.redirect('/imggnot')
 
         })
 //}
@@ -387,7 +387,7 @@ console.log("Document had beed added to database");
 
 
 
-app.get('/imgg', loggedIn, (req, res) => {
+app.get('/imggyes', loggedIn, (req, res) => {
 
   imggSchema.find({})
       .then(data => {
@@ -397,7 +397,7 @@ app.get('/imgg', loggedIn, (req, res) => {
   //res.render('index.ejs', { email: req.user.email })
 })
 
-app.post('/imgg', loggedIn, upload.single('image'), (req, res, next) => {
+app.post('/imggyes', loggedIn, upload.single('image'), (req, res, next) => {
 var appp = imggSchema.findOne({"address": req.body.description})
 
 const obj = {
@@ -417,7 +417,7 @@ if(appp > 1) {
 
       .then(item => {
         console.log(appp);
-        res.redirect('/imgg')
+        res.redirect('/imggyes')
       })
 
 } else {
