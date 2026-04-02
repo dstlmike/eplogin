@@ -17,6 +17,6 @@ module.exports.getMyData = async (req, res, next) => {
     res.status(200).json(data);
   } catch (err) {
     // Crucial for async: pass errors to the next middleware
-    next(err); 
+    console.log('Error');
   }
 };
