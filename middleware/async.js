@@ -1,6 +1,6 @@
 // controllers.js
 
-async function someAsyncDatabaseCall() {
+var someAsyncDatabaseCall = async function() {
   console.log("This is an Async Log Entry");
 }
 
