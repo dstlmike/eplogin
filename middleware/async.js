@@ -14,11 +14,11 @@ module.exports.getMyData = async (req, res, next) => {
  // try {
     const data = await someAsyncDatabaseCall();
    
-    res.send(data);
+    res.redirect('/data')
  // } catch (err) {
     // Crucial for async: pass errors to the next middleware
    // console.log(err); //console.log('Error');
  // }
-};
+}
 
 
