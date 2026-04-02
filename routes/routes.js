@@ -478,7 +478,7 @@ console.log('Connected');
 
 
 app.get('/async', loggedIn, (req, res, next) => {
-getMyData();
+getMyData;
   
   //res.render('index.ejs', { email: req.user.email })
 })
