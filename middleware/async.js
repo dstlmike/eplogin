@@ -1,7 +1,8 @@
 // controllers.js
 
-var someAsyncDatabaseCall = async function() {
-  console.log("This is an Async Log Entry");
+ async function someAsyncDatabaseCall() {
+   var entry = "This is an Async Log Entry";
+  console.log(entry);
 }
 
 
@@ -9,7 +10,7 @@ var someAsyncDatabaseCall = async function() {
 
 
 
-exports.getMyData = async (req, res, next) => {
+module.exports.getMyData = async (req, res, next) => {
   try {
     const data = await someAsyncDatabaseCall();
    
