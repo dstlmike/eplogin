@@ -24,7 +24,7 @@ var day = moment().utcOffset(-240).format('DD');
 //var getIpData = require('../modules/ipdata.js');
 var getAllDocuments = require('../middleware/dbep.js');
 var profileAllDocuments = require('../middleware/profilefind.js');
-var aasync = require('../middleware/async.js');
+var getMyData = require('../middleware/async.js');
 app.set('trust proxy', true);
 app.use(express.static('partials'));
 app.set('view engine', 'ejs');
@@ -478,7 +478,7 @@ console.log('Connected');
 
 
 app.get('/async', loggedIn, (req, res, next) => {
-aasync();
+getMyData();
   
   //res.render('index.ejs', { email: req.user.email })
 })
