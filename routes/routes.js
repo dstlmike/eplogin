@@ -477,7 +477,7 @@ console.log('Connected');
 //app.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0');
 
 
-app.get('/async', loggedIn, getMyData); // (req, res, next) => {
+app.get('/async', loggedIn, getMyData) => { // (req, res, next) => {
 
   
   //res.render('index.ejs', { email: req.user.email })
