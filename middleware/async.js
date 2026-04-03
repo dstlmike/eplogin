@@ -2,7 +2,8 @@
 
  async function someAsyncDatabaseCall(data) {
    var entry = "This is an Async Log Entry";
-  console.log(entry);
+  data = entry;
+  console.log(data);
  // return entry;
 }
 
@@ -13,7 +14,7 @@
 module.exports.getMyData = async (req, res, next) => {
  // try {
   //  const data =
-     await someAsyncDatabaseCall();
+     await someAsyncDatabaseCall(data);
    
   //  res.redirect('/data')
  // } catch (err) {
