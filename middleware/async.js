@@ -13,7 +13,8 @@
 
 module.exports.getMyData = async (req, res, next) => {
  // try {
- var entry = req.body;
+ var entry = "This is an Async Log Entry";
+
   //  const data =
      await someAsyncDatabaseCall(entry);
    
