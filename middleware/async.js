@@ -4,7 +4,7 @@ var app = express.Router();
 //var getMyData = express.Router();
 
 
-app.get('/aasync', async(req, res) => {
+var getMyData = app.get('/aasync', async(req, res) => {
  var entry = "This is an Async Log Entry";
    
  res = {
