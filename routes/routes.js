@@ -480,7 +480,7 @@ console.log('Connected');
 app.get('/async', loggedIn, async (req, res, next) => {
 var entry = await getMyData(entry);
   //req.body = entry;
-  res.send(await getMyData(entry)
+  res.send(await getMyData(entry))
    //render('index.ejs', { email: req.user.email })
 })
 
