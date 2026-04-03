@@ -1,6 +1,6 @@
 // controllers.js
 var express = require('express');
-var app = express.Router();
+var app = express();
 //var getMyData = express.Router();
 
 
