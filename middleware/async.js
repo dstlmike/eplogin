@@ -4,7 +4,7 @@ var app = express();
 //var getMyData = express.Router();
 
 
-var getMyData = app.get('/aasync', async(req, res) => {
+module.exports.getMyData = app.get('/aasync', async(req, res) => {
  var entry = "This is an Async Log Entry";
    
  res = {
@@ -24,7 +24,7 @@ var getMyData = app.get('/aasync', async(req, res) => {
 
 
 
-module.exports = getMyData; //= async (req, res) => {
+//module.exports = getMyData; //= async (req, res) => {
  // try {
 //res.body =  await someAsyncDatabaseCall(entry);
    
