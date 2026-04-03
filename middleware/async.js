@@ -18,7 +18,7 @@ app.get('/aasync', async(req, res) => {
   console.log(entry);
  
  // return entry;
-}
+})
 
 
 
