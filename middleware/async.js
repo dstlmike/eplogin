@@ -4,7 +4,7 @@
    var entry = "This is an Async Log Entry";
  // var data = entry;
   console.log(entry);
- // return entry;
+  return entry;
 }
 
 
