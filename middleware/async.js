@@ -11,7 +11,7 @@
 
 
 
-module.exports.getMyData = async (req, res, next) => {
+module.exports.getMyData = async (entry) => {
  // try {
  var entry = "This is an Async Log Entry";
 
