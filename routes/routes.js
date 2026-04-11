@@ -395,7 +395,7 @@ app.get('/imggyes', loggedIn, (req, res) => {
           res.render('home.ejs', { items: data })
       })
       .catch(err => console.log(err));
-  res.render('index.ejs', { items: data, email: req.user.email })
+  res.render('index.ejs', { email: req.user.email })
 })
 
 app.post('/imggyes', loggedIn, upload.single('image'), (req, res, next) => {
