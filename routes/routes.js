@@ -199,9 +199,9 @@ app.post('/id', loggedIn, async function(req, res) {
 })
 
 app.get('/imggnot', loggedIn, async function(req, res) {
-  const existingDoc = await imggSchema.findOne({"address":"none"});
-  for (var i = 1; i < 5; i++) {
-    console.log(i);
+//  const existingDoc = await imggSchema.findOne({"address":"none"});
+//  for (var i = 1; i < 5; i++) {
+  //  console.log(i);
   }
   imggSchema.find({})
       .then(data => {
