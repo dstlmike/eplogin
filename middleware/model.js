@@ -10,6 +10,11 @@ addresss: Array,
         data: Buffer,
         contentType: String,
         description: String
-    }
+    },
+  img1: {
+        data: Buffer,
+        contentType: String,
+        description: String
+  }
 });
 module.exports = mongoose.model('Image', imggSchema);
