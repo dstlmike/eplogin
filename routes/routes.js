@@ -300,8 +300,8 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
   console.log("Document exists!");
 const obj = {
 
-  address: req.body.address,
-      img: {
+  
+      img1: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
