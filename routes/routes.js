@@ -257,6 +257,65 @@ var appp = imggSchema.findOne({"address": req.body.description})
     })
 
 
+app.get('/imggnott', loggedIn, async function(req, res) {
+//  const existingDoc = await imggSchema.findOne({"address":"none"});
+//  for (var i = 1; i < 5; i++) {
+  //  console.log(i);
+//  }
+  imggSchema.find({})
+      .then(data => {
+          res.render('home1tt.ejs', { items: data })
+      })
+      .catch(err => console.log(err));
+})
+
+app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
+var appp = imggSchema.findOne({"address": req.body.description})
+const existingDoc = await imggSchema.findOne({"address":req.body.address});
+
+for (var i = 1; i < 10; i++) {
+//for (var i = 1; i < 5; i++) {
+if (existingDoc == null || existingDoc.address != req.body.address) {
+ console.log("Document has beed added to database");
+
+
+  const obj = {
+
+  address: req.body.address,
+      img: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+          description: req.body.description
+      }
+
+  };
+    imggSchema.create(obj)
+
+        .then(item => {
+          res.redirect('/imggnott')
+
+        })
+//}
+} else {
+  console.log("Document exists!");
+
+    imggSchema.updateOne({"address": req.body.address}, {$push: {"img1": obj}})
+
+        .then(item => {
+          console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+//}
+          res.redirect('/imggnott')
+
+        })
+
+
+
+      .catch(err => console.log(err));
+    }
+}
+    })
+
+
 app.get('/imggg', loggedIn, async function(req, res) {
   const existingDoc = await imggSchema.findOne({"address":"none"});
 if (existingDoc) {
