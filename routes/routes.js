@@ -298,7 +298,16 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 //}
 } else {
   console.log("Document exists!");
+const obj = {
 
+  address: req.body.address,
+      img: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+          description: req.body.description
+      }
+
+  };
     imggSchema.updateOne({"address": req.body.address}, {$push: {"img1": obj}})
 
         .then(item => {
