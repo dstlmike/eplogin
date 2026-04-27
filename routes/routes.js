@@ -243,7 +243,7 @@ var appp = imggSchema.findOne({"address": req.body.description})
    /// imggSchema.updateOne({"address": req.body.description}, {$push: {"addresss": {obj}}})
 
         .then(item => {
-          console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+        ///  console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
 //}
           res.redirect('/imgg')
 
@@ -253,7 +253,7 @@ var appp = imggSchema.findOne({"address": req.body.description})
 
       .catch(err => console.log(err));
  ///   }
-}
+///}
     })
 
 
