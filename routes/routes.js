@@ -311,7 +311,7 @@ const obj = {
     imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj}})
 
         .then(item => {
-          console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+      //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
 //}
           res.redirect('/imggnott')
 
