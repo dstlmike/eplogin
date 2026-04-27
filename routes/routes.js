@@ -202,7 +202,7 @@ app.get('/imggnot', loggedIn, async function(req, res) {
 //  const existingDoc = await imggSchema.findOne({"address":"none"});
 //  for (var i = 1; i < 5; i++) {
   //  console.log(i);
-  }
+//  }
   imggSchema.find({})
       .then(data => {
           res.render('home1.ejs', { items: data })
