@@ -300,7 +300,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
   console.log("Document exists!");
 const obj = {
 
-    address: req.body.address,
+ ///   address: req.body.address,
       img1: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
@@ -308,7 +308,7 @@ const obj = {
       }
 
   };
-    imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj}})
+    imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj.img1}})
 
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
