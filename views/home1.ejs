@@ -201,7 +201,8 @@ position: absolute;
             <% items.forEach(item => { %>
 
                     <img src="data:<%= item.img.contentType %>;base64,<%= item.img.data.toString('base64') %>"/>
-<h2><%= item.address %><br><br><%= item.img.description %></h2>
+<h2><%= item.address %><br></h2>
+<p><%= item.img.description %></p>
 
 
             <% }); %>
