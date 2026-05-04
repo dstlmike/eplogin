@@ -308,7 +308,7 @@ const obj = {
       }
 
   };
-    imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj.img1}})
+    imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj}})
 
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
