@@ -460,11 +460,12 @@ console.log("Document had beed added to database");
 
 
 app.get('/imggyes', loggedIn, (req, res) => {
-var guesss = moment.tz.guess(); // Europe/Berlin
+ imggSchema.find({})
+      .then(data => {
+         var guesss = moment.tz.guess(); // Europe/Berlin
 
    console.log(guesss);
-  imggSchema.find({})
-      .then(data => {
+ 
           res.render('home.ejs', { items: data })
       })
       .catch(err => console.log(err));
