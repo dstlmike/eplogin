@@ -155,6 +155,8 @@ app.post('/register', async (req, res, next) => {
 app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }))
 
 app.get('/', loggedIn, (req, res) => {
+   var guess = moment.tz.guess(true); // Europe/Berlin
+
    console.log(guess);
   res.render('index.ejs', { email: req.user.email })
 })
