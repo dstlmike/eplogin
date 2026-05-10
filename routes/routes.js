@@ -21,7 +21,7 @@ var time = moment().utcOffset(-240).format('LTS');
 var year = moment().utcOffset(-240).format('YYYY');
 var month = moment().utcOffset(-240).format('MM');
 var day = moment().utcOffset(-240).format('DD');
-var guesss = moment.tz.guess(); // Europe/Berlin
+var guesss = moment.tz.guess(true); // Europe/Berlin
 
 //var getIpData = require('../modules/ipdata.js');
 var getAllDocuments = require('../middleware/dbep.js');
@@ -462,7 +462,7 @@ console.log("Document had beed added to database");
 app.get('/imggyes', loggedIn, (req, res) => {
  imggSchema.find({})
       .then(data => {
-         var guesss = moment.tz.guess(); // Europe/Berlin
+         var guesss = moment.tz.guess(true); // Europe/Berlin
 
    console.log(guesss);
  
