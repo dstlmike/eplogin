@@ -155,9 +155,7 @@ app.post('/register', async (req, res, next) => {
 app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }))
 
 app.get('/', loggedIn, (req, res) => {
-   var guesss = moment.tz.guess(true); // Europe/Berlin
-
-   console.log(guesss);
+   
   res.render('index.ejs', { email: req.user.email })
 })
 
@@ -462,7 +460,9 @@ console.log("Document had beed added to database");
 
 
 app.get('/imggyes', loggedIn, (req, res) => {
+var guesss = moment.tz.guess(true); // Europe/Berlin
 
+   console.log(guesss);
   imggSchema.find({})
       .then(data => {
           res.render('home.ejs', { items: data })
