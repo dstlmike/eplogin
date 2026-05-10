@@ -265,7 +265,7 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 //  for (var i = 1; i < 5; i++) {
   //  console.log(i);
 //  }
-   var datee = moment.tz(Toronto/America).format('YYYYMMDD');
+   var datee = moment.tz('Toronto/America').format('YYYYMMDD');
    console.log(datee);
   imggSchema.find({})
       .then(data => {
