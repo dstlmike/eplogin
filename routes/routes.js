@@ -265,6 +265,8 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 //  for (var i = 1; i < 5; i++) {
   //  console.log(i);
 //  }
+   var datee = moment.tz.format('YYYYMMDD');
+   console.log(datee);
   imggSchema.find({})
       .then(data => {
           res.render('home1tt.ejs', { items: data })
