@@ -21,6 +21,8 @@ var time = moment().utcOffset(-240).format('LTS');
 var year = moment().utcOffset(-240).format('YYYY');
 var month = moment().utcOffset(-240).format('MM');
 var day = moment().utcOffset(-240).format('DD');
+var guess = moment.tz.guess(true); // Europe/Berlin
+
 //var getIpData = require('../modules/ipdata.js');
 var getAllDocuments = require('../middleware/dbep.js');
 var profileAllDocuments = require('../middleware/profilefind.js');
@@ -153,6 +155,7 @@ app.post('/register', async (req, res, next) => {
 app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }))
 
 app.get('/', loggedIn, (req, res) => {
+   console.log(guess);
   res.render('index.ejs', { email: req.user.email })
 })
 
