@@ -613,7 +613,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 const obj = {
 
    address: req.body.address,
-      img: {
+      imgg: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
@@ -622,7 +622,7 @@ const obj = {
   };
    //for (var i = 1; i < 10; i++) {
 
-    imggSchema.updateOne({"address": req.body.address}, {$push: {"img": obj.img}})
+    imggSchema.updateOne({"address": req.body.address}, {$push: {"imgg": obj.imgg}})
   // }
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
