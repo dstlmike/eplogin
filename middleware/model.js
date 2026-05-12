@@ -5,7 +5,7 @@ const imggSchema = new mongoose.Schema({
 
   phone: String,
     address: String,
-addresss: Array,
+imgg: Array,
     img: {
         data: Buffer,
         contentType: String,
