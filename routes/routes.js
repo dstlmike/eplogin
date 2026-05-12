@@ -603,7 +603,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
     imggSchema.create(obj)
 
         .then(item => {
-          res.redirect('/imggnott')
+          res.redirect('/imggnottt')
 
         })
 //}
