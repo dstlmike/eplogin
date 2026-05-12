@@ -622,7 +622,7 @@ const obj = {
   };
    for (var i = 1; i < 10; i++) {
 
-    imggSchema.updateOne({"address": req.body.address}, {$set: {"img" + i: obj.img + i}})
+    imggSchema.updateOne({"address": req.body.address}, {$set: {"img" i: obj.img + i}})
    }
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
