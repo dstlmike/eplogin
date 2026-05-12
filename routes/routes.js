@@ -562,6 +562,86 @@ return res.send(entry)
 })
 
 
+
+
+app.get('/imggnottt', loggedIn, async function(req, res) {
+//  const existingDoc = await imggSchema.findOne({"address":"none"});
+//  for (var i = 1; i < 5; i++) {
+  //  console.log(i);
+//  }
+   var datee = moment.tz('America/Toronto').format('YYYYMMDD');
+   console.log(datee);
+  imggSchema.find({})
+      .then(data => {
+          res.render('home1tt.ejs', { items: data })
+      })
+      .catch(err => console.log(err));
+})
+
+app.post('/imggnottt', loggedIn, upload.single('image'), async function(req, res, next) {
+let img = "img";
+   var appp = imggSchema.findOne({"address": req.body.description})
+const existingDoc = await imggSchema.findOne({"address":req.body.address});
+var datee = moment.tz.format('YYYYMMDD');
+   console.log(datee);
+//for (var i = 1; i < 10; i++) {
+//for (var i = 1; i < 5; i++) {
+if (existingDoc == null || existingDoc.address != req.body.address) {
+ console.log("Document has beed added to database");
+
+
+  const obj = {
+
+  address: req.body.address,
+      img: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+          description: req.body.description
+      }
+
+  };
+    imggSchema.create(obj)
+
+        .then(item => {
+          res.redirect('/imggnott')
+
+        })
+//}
+} else if (existingDoc && existingDoc.img != null) {
+ // obj.img == obj.img + i++);
+   console.log("Document exists!");
+const obj = {
+
+   address: req.body.address,
+      img: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+          description: req.body.description
+      }
+
+  };
+   for (var i = 1; i < 10; i++) {
+
+    imggSchema.updateOne({"address": req.body.address}, {$set: {"img" + i: obj.img + i}})
+   }
+        .then(item => {
+      //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
+//}
+          res.redirect('/imggnott')
+
+        })
+
+
+
+      .catch(err => console.log(err));
+    }
+//}
+    })
+
+
+
+
+
 module.exports = app;
 
 
