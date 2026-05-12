@@ -573,7 +573,7 @@ app.get('/imggnottt', loggedIn, async function(req, res) {
    console.log(datee);
   imggSchema.find({})
       .then(data => {
-          res.render('home1tt.ejs', { items: data })
+          res.render('home1ttt.ejs', { items: data })
       })
       .catch(err => console.log(err));
 })
@@ -622,12 +622,12 @@ const obj = {
   };
    //for (var i = 1; i < 10; i++) {
 
-    imggSchema.updateOne({"address": req.body.address}, {$push: {"img": obj.img i}})
+    imggSchema.updateOne({"address": req.body.address}, {$push: {"img": obj.img}})
   // }
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
 //}
-          res.redirect('/imggnott')
+          res.redirect('/imggnottt')
 
         })
 
