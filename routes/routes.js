@@ -583,6 +583,11 @@ app.post('/imggnottt', loggedIn, upload.single('image'), async function(req, res
    var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
 var datee = moment.tz('America/Toronto').format('YYYYMMDD');
+
+   var today = moment.tz('America/Toronto').format('YYYYMMDDHHMMSS');
+
+
+   
    console.log(datee);
 for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
@@ -622,7 +627,7 @@ const obj = {
   };
    //for (var i = 1; i < 10; i++) {
 
-    imggSchema.updateOne({"address": req.body.address}, {$push: {"imgg": obj.imgg}})
+    imggSchema.updateOne({"address": req.body.address}, {$set: {[today]: obj.imgg}})
   // }
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
