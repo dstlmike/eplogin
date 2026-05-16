@@ -22,7 +22,7 @@
     "path": "^0.12.7"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "npm install mongoose mongoose-slug-generator && node index.js"
   },
   "author": "",
   "license": "ISC",
