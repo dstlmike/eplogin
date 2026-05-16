@@ -7,7 +7,7 @@ const imggSchema = new mongoose.Schema({
     address: String,
   addresss: Array,
   today: {
-    today: today,
+    today: String,
 imgg: Array,
     img: {
         data: Buffer,
