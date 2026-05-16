@@ -159,6 +159,35 @@ app.get('/', loggedIn, (req, res) => {
   res.render('index.ejs', { email: req.user.email })
 })
 
+
+
+
+
+
+
+
+const express = require('express');
+//const router = express.Router();
+const Post = require('./models/Post');
+
+// The route captures the URL field (slug)
+router.get('/posts/:slug', async (req, res) => {
+  try {
+    // Find the document matching the URL slug
+    const post = await Post.findOne({ slug: req.params.slug });
+    
+    if (!post) {
+      return res.status(404).send('Post not found');
+    }
+    
+    res.render('post-template', { post });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+module.exports = router;
+
 app.get('/hi', loggedIn, (req, res) => {
   var name = "Alex";
   getAllDocuments(name);
