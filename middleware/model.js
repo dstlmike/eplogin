@@ -59,6 +59,7 @@ imgg: Array,
         contentType: String,
         description: String
   }
+  }
   
 });
 module.exports = mongoose.model('Image', imggSchema);
