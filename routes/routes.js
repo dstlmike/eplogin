@@ -168,7 +168,7 @@ app.get('/', loggedIn, (req, res) => {
 
 //const express = require('express');
 //const router = express.Router();
-const Post = require('./middleware/Post.js');
+const Post = require('../middleware/Post.js');
 
 // The route captures the URL field (slug)
 router.get('/posts/:slug', async (req, res) => {
