@@ -312,7 +312,7 @@ var today = moment.tz('America/Toronto').format('YYYYMMDD');
 //for (var i = 1; i < 5; i++) {
 if (existingDoc == null || existingDoc.address != req.body.address) {
  console.log("Document has beed added to database");
-
+today = today;
 
   const obj = {
 
@@ -336,6 +336,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 //}
 } else {
   console.log("Document exists!");
+   today = today;
 const obj = {
 
    address: req.body.address,
