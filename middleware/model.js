@@ -8,7 +8,7 @@ const imggSchema = new mongoose.Schema({
   addresss: Array,
   today: {
     today: String,
-imgg: Array,
+imgg: String,
     img: {
         data: Buffer,
         contentType: String,
