@@ -339,8 +339,8 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 const obj = {
 
    address: req.body.address,
-   today {
-   imgg {
+   today: {
+   imgg: {
       img1: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
