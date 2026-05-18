@@ -306,8 +306,8 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
-var datee = moment.tz('America/Toronto').format('YYYYMMDD');
-   console.log(datee);
+var today = moment.tz('America/Toronto').format('YYYYMMDD');
+   console.log(today);
 //for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
 if (existingDoc == null || existingDoc.address != req.body.address) {
@@ -349,7 +349,7 @@ const obj = {
    }
 }
   };
-    imggSchema.updateOne({"address": req.body.address}, {$set: {"today.imgg.img1": obj.today.imgg.img1}})
+    imggSchema.updateOne({"address": req.body.address}, {$set: {today: obj.today.imgg.img1}})
 
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
