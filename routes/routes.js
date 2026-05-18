@@ -180,7 +180,7 @@ router.get('/posts/:slug', async (req, res) => {
       return res.status(404).send('Post not found');
     }
     
-    res.render('post-template', { post });
+    res.render('index.ejs', { post });
   } catch (err) {
     res.status(500).send(err.message);
   }
