@@ -317,7 +317,7 @@ req.body.today = today;
   const obj = {
 
   address: req.body.address,
-     req.body.today:{
+     $currentDate():{
         imgg:{
       img: {
           data: req.file.buffer,
@@ -340,7 +340,7 @@ req.body.today = today;
 const obj = {
 
    address: req.body.address,
-   today: {
+   $currentDate(): {
    imgg: {
       img1: {
           data: req.file.buffer,
