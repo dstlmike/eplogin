@@ -8,7 +8,7 @@ const imggSchema = new mongoose.Schema({
   addresss: Array,
   today: {
     today: String,
-imgg: String,
+imgg: {
     img: {
         data: Buffer,
         contentType: String,
@@ -60,6 +60,6 @@ imgg: String,
         description: String
   }
   }
-  
+  }
 });
 module.exports = mongoose.model('Image', imggSchema);
