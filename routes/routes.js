@@ -308,7 +308,7 @@ var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
 var datee = moment.tz('America/Toronto').format('YYYYMMDD');
    console.log(datee);
-for (var i = 1; i < 10; i++) {
+//for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
 if (existingDoc == null || existingDoc.address != req.body.address) {
  console.log("Document has beed added to database");
@@ -355,7 +355,7 @@ const obj = {
 
 
       .catch(err => console.log(err));
-    }
+    //}
 }
     })
 
