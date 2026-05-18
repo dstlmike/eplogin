@@ -317,12 +317,15 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
   const obj = {
 
   address: req.body.address,
+     today:{
+        imgg:{
       img: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
       }
-
+        }
+     }
   };
     imggSchema.create(obj)
 
@@ -336,12 +339,15 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 const obj = {
 
    address: req.body.address,
+   today {
+   imgg {
       img1: {
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
       }
-
+   }
+}
   };
     imggSchema.updateOne({"address": req.body.address}, {$set: {"img1": obj.img1}})
 
