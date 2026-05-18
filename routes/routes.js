@@ -306,7 +306,7 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
-var datee = moment.tz.format('YYYYMMDD');
+var datee = moment.tz('America/Toronto').format('YYYYMMDD');
    console.log(datee);
 for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
