@@ -390,7 +390,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 
         })
 //}
-} else {
+} else if(existingDoc != null || existingDoc.address == req.body.address) {
   console.log("Document exists!");
   // today = today;
 const obj = {
