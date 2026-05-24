@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
+const Website = require('./middleware/url.js');
 
 var routes = express();
 var bodyParser = require('body-parser');
@@ -186,7 +187,30 @@ router.get('/posts/:slug', async (req, res) => {
   }
 });
 
-module.exports = router;
+//module.exports = router;
+
+
+
+
+
+
+router.post('/add-site', async (req, res) => {
+  try {
+    const newSite = new Website({
+      name: req.body.name,
+      url: req.body.url
+    });
+
+    await newSite.save();
+    res.status(201).json(newSite);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+
+
+
 
 app.get('/hi', loggedIn, (req, res) => {
   var name = "Alex";
