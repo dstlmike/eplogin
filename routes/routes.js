@@ -220,14 +220,14 @@ app.post('/add-site', loggedIn, async (req, res) => {
 app.get('/redirect/:id', async (req, res) => {
     try {
         // 1. Find the document by its ID
-        const doc = await Company.findOne(url: req.params.id);
+        const doc = await Company.findById("url": req.params.id);
 
         if (doc && doc.url) {
             // 2. Assign the URL field to a variable
             const targetUrl = doc.url;
 
             // 3. Use it (e.g., redirect the user)
-            return res.redirect('/redirect/' + targetUrl);
+            return res.redirect(targetUrl);
         } else {
             return res.status(404).send('URL not found');
         }
