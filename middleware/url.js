@@ -7,13 +7,13 @@ const websiteSchema = new mongoose.Schema({
   },
   url: {
     type: String,
-    required: true,
-    trim: true ,
+    required: true ///,
+   /// trim: true ,
     // Optional: Basic regex validation for URLs
-    match: [
-      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/, 
-      'Please fill a valid URL'
-    ]
+   /// match: [
+  ///    /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/, 
+  ///    'Please fill a valid URL'
+ ///   ]
   }
 });
 
