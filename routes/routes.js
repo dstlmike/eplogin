@@ -224,7 +224,7 @@ app.get('/redirect/:id', loggedIn, async (req, res) => {
         // 1. Find the document by its ID
         const doc = await Company.findOne({"url": req.params.id});
 
-        if (doc && doc.url == req.params.id) {
+        if (doc && doc.url) {
             // 2. Assign the URL field to a variable
             const targetUrl = doc.url;
 
