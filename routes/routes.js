@@ -192,6 +192,12 @@ router.get('/posts/:slug', async (req, res) => {
 
 
 
+router.get('/url', loggedIn, (req, res) => {
+  var name = "req.body.name";
+  res.render('url.ejs') // { items: data })
+  //res.send(name);
+  //res.render('index.ejs', { email: req.user.email })
+})
 
 
 router.post('/add-site', async (req, res) => {
