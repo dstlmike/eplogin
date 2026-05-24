@@ -229,7 +229,7 @@ console.log(req.params['id']);
             const targetUrl = doc.url;
 console.log(targetUrl);
             // 3. Use it (e.g., redirect the user)
-            return res.redirect(targetUrl);
+            return res.redirect('/url');
         } else {
        //    const targetUrl = "/redirect" + doc.url;
 //console.log(targetUrl);
