@@ -362,18 +362,18 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
-var today = moment.tz('America/Toronto').format('YYYYMMDD');
-   console.log(today);
+//var today = moment.tz('America/Toronto').format('YYYYMMDD');
+   //console.log(today);
 //for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
 if (existingDoc == null || existingDoc.address != req.body.address) {
  console.log("Document has beed added to database");
-req.body.today = today;
+//req.body.today = today;
 
   const obj = {
 
   address: req.body.address,
-      "$currentDate()":{
+      today:{
         imgg:{
       img: {
           data: req.file.buffer,
@@ -396,7 +396,7 @@ req.body.today = today;
 const obj = {
 
    address: req.body.address,
-   "$currentDate()": {
+   today: {
    imgg: {
       img1: {
           data: req.file.buffer,
