@@ -227,15 +227,15 @@ app.get('/redirect/:id', loggedIn, async (req, res) => {
         if (doc && doc.url) {
             // 2. Assign the URL field to a variable
             const targetUrl = doc.url;
-
+console.log(targetUrl);
             // 3. Use it (e.g., redirect the user)
-            return res.redirect('/redirect/' + targetUrl);
+            return res.redirect(targetUrl);
         } else {
             return res.status(404).send('URL not found');
         }
     } catch (err) {
        console.log(doc);
-       console.log(targetUrl);
+      // console.log(targetUrl);
         res.status(500).send('Server Error');
     }
 });
