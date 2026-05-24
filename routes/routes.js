@@ -226,7 +226,7 @@ app.get('/redirect/:id', loggedIn, async (req, res) => {
 
         if (doc && doc.url) {
             // 2. Assign the URL field to a variable
-            const targetUrl = doc.url;
+            const targetUrl = "/redirect" + doc.url;
 console.log(targetUrl);
             // 3. Use it (e.g., redirect the user)
             return res.redirect(targetUrl);
