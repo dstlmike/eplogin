@@ -218,7 +218,9 @@ app.post('/add-site', loggedIn, async (req, res) => {
 
 
 app.get('/redirect/:id', loggedIn, async (req, res) => {
-    try {
+  const doc = await Company.findById(req.params.id);
+
+   try {
         // 1. Find the document by its ID
         const doc = await Company.findById(req.params.id);
 
