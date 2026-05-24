@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
-const Website = require('./middleware/url.js');
+const Website = require('../middleware/url.js');
 
 var routes = express();
 var bodyParser = require('body-parser');
