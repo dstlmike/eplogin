@@ -231,6 +231,8 @@ console.log(targetUrl);
             // 3. Use it (e.g., redirect the user)
             return res.redirect(targetUrl);
         } else {
+           const targetUrl = "/redirect" + doc.url;
+console.log(targetUrl);
             return res.status(404).send('URL not found');
         }
     } catch (err) {
