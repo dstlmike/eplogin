@@ -227,7 +227,7 @@ app.get('/redirect/:id', async (req, res) => {
             const targetUrl = doc.url;
 
             // 3. Use it (e.g., redirect the user)
-            return res.redirect(targetUrl);
+            return res.redirect('/redirect/' + targetUrl);
         } else {
             return res.status(404).send('URL not found');
         }
