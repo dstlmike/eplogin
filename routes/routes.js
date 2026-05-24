@@ -217,12 +217,12 @@ app.post('/add-site', loggedIn, async (req, res) => {
 
 
 
-app.get('/redirect/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
     try {
         // 1. Find the document by its ID
         const doc = await Company.findById({"url": req.params.id});
 
-        if (doc && doc.url) {
+        if (doc && doc.url == req.params.id) {
             // 2. Assign the URL field to a variable
             const targetUrl = doc.url;
 
