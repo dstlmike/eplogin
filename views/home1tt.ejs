@@ -220,7 +220,7 @@ position: absolute;
 
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
-<% if(item.today.imgg.img3 !== undefined) { %>
+<% if(item.today.imgg.img3.data.toString !== undefined) { %>
 
 <img src="data:<%= item.today.imgg.img3.contentType %>;base64,<%= item.today.imgg.img3.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.today.imgg.img3.description %></p>
