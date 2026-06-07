@@ -219,7 +219,7 @@ app.post('/add-site', loggedIn, async (req, res) => {
 
 app.get('/redirect/:id', loggedIn, async (req, res) => {
   const doc = await Company.findOne({"url": "/redirect/" + req.params['id']});
-console.log('This ' req.params[id]);
+console.log('This ' + req.params[id]);
    try {
         // 1. Find the document by its ID
         const doc = await Company.findOne({"url": "/redirect/" + req.params['id']});
