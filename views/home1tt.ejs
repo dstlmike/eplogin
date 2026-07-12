@@ -222,15 +222,19 @@ position: absolute;
             <% items.forEach(item => { %>
 <% if(item.today.imgg.img1 !== undefined && item.today.imgg.img1 !== null) { %>
 
-<img src="data:<%= item.today.imgg.img1.contentType %>;base64,<%= item.today.imgg.img1.data.toString('base64') %>"/>
-<p><%= item.address %><br><%= item.today.imgg.img1.description %></p>
-        
+<p> Img1 does not exist</p>
 
 
 
 
 <% } else { %>
- <p> Img1 does not exist</p>
+
+<img src="data:<%= item.today.imgg.img1.contentType %>;base64,<%= item.today.imgg.img1.data.toString('base64') %>"/>
+<p><%= item.address %><br><%= item.today.imgg.img1.description %></p>
+
+
+
+ 
 
 <% } %>
 <% }); %>
