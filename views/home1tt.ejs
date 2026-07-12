@@ -220,7 +220,7 @@ position: absolute;
 
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
-<% if(item.today.imgg.img1) { %>
+<% if(item.today.imgg.img1 !== undefined && item.today.imgg.img1 !== null) { %>
 <p> Img1 does not exist</p>
 
 
