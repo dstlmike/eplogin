@@ -220,7 +220,7 @@ position: absolute;
 
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
-<% if(!item.today.imgg.img3) { %>
+<% if(item.today.imgg.img3) { %>
 <p> Img3 does not exist</p>
 <% } else { %>
 <img src="data:<%= item.today.imgg.img.contentType %>;base64,<%= item.today.imgg.img.data.toString('base64') %>"/>
