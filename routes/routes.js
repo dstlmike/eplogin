@@ -393,11 +393,18 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 //}
 } else if(existingDoc != null || existingDoc.address == req.body.address) {
   console.log("Document exists!");
+
+   const today = new Date().toISOString().split('T')[0];
+
+// 2. Use square brackets to evaluate the variable as a key
+const schedule = {
+  [today]: "Project Launch"
+};
   // today = today;
 const obj = {
 
    address: req.body.address,
-   today: {
+   [today]: {
    imgg: {
       img1: {
           data: req.file.buffer,
