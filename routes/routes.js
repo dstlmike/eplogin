@@ -362,6 +362,7 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
+   const today = new Date().toISOString().split('T')[0];
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
 //var today = moment.tz('America/Toronto').format('YYYYMMDD');
    //console.log(today);
@@ -396,10 +397,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 
    const today = new Date().toISOString().split('T')[0];
 
-// 2. Use square brackets to evaluate the variable as a key
-const schedule = {
-  [today]: "Project Launch"
-};
+
   // today = today;
 const obj = {
 
