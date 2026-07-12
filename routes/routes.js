@@ -402,7 +402,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 const obj = {
 
    address: req.body.address,
-   [today]: {
+   today: {
    imgg: {
       img1: {
           data: req.file.buffer,
@@ -412,7 +412,7 @@ const obj = {
    }
 }
   };
-    imggSchema.updateOne({"address": req.body.address}, {$set: { "[today].imgg.img1": obj.today.imgg.img1 }}) 
+    imggSchema.updateOne({"address": req.body.address}, {$set: { "today.imgg.img1": obj.today.imgg.img1 }}) 
         .then(item => {
       //    console.log(JSON.stringify(existingDoc.addresss[0].obj.address)); //, null, 2));
 //}
