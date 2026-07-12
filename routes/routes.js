@@ -362,7 +362,7 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
-   const today = new Date().toISOString().split('T')[0];
+  // const today = new Date().toISOString().split('T')[0];
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
 //var today = moment.tz('America/Toronto').format('YYYYMMDD');
    //console.log(today);
@@ -395,7 +395,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 } else if(existingDoc != null || existingDoc.address == req.body.address) {
   console.log("Document exists!");
 
-   const today = new Date().toISOString().split('T')[0];
+   //const today = new Date().toISOString().split('T')[0];
 
 
   // today = today;
