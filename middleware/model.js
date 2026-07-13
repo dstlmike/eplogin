@@ -10,12 +10,14 @@ const imggSchema = new mongoose.Schema({
 imgg: {
     img: {
       date: String,
+      time: String,
       data: Buffer,
         contentType: String,
         description: String
     },
   img1: {
     date: String,
+    time: String,
         data: Buffer,
         contentType: String,
         description: String
