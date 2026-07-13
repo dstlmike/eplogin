@@ -6,7 +6,7 @@ const imggSchema = new mongoose.Schema({
   phone: String,
     address: String,
   addresss: Array,
-  today: {
+  reports: {
 imgg: {
     img: {
       date: String,
