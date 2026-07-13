@@ -382,6 +382,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
         imgg:{
       img: {
          date: date,
+         time: time,
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
@@ -406,6 +407,7 @@ const obj = {
    imgg: {
       img1: {
          date: date,
+         time: time,
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
