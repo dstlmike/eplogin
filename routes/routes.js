@@ -363,7 +363,11 @@ app.get('/imggnott', loggedIn, async function(req, res) {
 app.post('/imggnott', loggedIn, upload.single('image'), async function(req, res, next) {
 var appp = imggSchema.findOne({"address": req.body.description})
 const existingDoc = await imggSchema.findOne({"address":req.body.address});
-//var today = moment.tz('America/Toronto').format('YYYYMMDD');
+var date = moment().utcOffset(-240).format('LL');
+var time = moment().utcOffset(-240).format('LTS');
+
+   
+   //var today = moment.tz('America/Toronto').format('YYYYMMDD');
    //console.log(today);
 //for (var i = 1; i < 10; i++) {
 //for (var i = 1; i < 5; i++) {
@@ -377,6 +381,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
       today:{
         imgg:{
       img: {
+         date: date,
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
@@ -400,6 +405,7 @@ const obj = {
    today: {
    imgg: {
       img1: {
+         date: date,
           data: req.file.buffer,
           contentType: req.file.mimetype,
           description: req.body.description
