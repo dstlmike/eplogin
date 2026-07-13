@@ -378,7 +378,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
   const obj = {
 
   address: req.body.address,
-      today:{
+      reports:{
         imgg:{
       img: {
          date: date,
@@ -403,7 +403,7 @@ if (existingDoc == null || existingDoc.address != req.body.address) {
 const obj = {
 
    address: req.body.address,
-   today: {
+   reports: {
    imgg: {
       img1: {
          date: date,
