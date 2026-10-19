@@ -22,21 +22,33 @@ align-items: center;
   cursor: pointer; /* Change cursor to a hand pointer */
   border-radius: 8px; /* Rounded corners */
 }
+
 @media print {
-@page {
-    size: 8.5in 11in;
-    margin: 0; /* Optional: adjust margins as needed */
+  /* Hide the print button when printing */
+  #print-btn {
+    display: none;
   }
-  body {
-    width: 8.5in;
-    height: 11in;
+
+  /* Prevent images or their containers from splitting in half */
+  .container, 
+  container img, 
+  figure {
+    break-inside: avoid;
+    page-break-inside: avoid; /* For older browsers */
+  }
+
+  /* Optional: prevent body or card sections from awkward splits */
+  p, h1, h2 {
+    break-inside: avoid;
   }
 }
+
+
     #pdf-content {
         /* Ensure content doesn't break in the middle of text/images */
         page-break-inside: avoid;
     }
-}
+
         /* CSS to style your content */
         #content-to-export {
             width: 8.5in; /* Set width to target size */
