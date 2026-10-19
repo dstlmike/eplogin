@@ -24,25 +24,18 @@ align-items: center;
 }
 
 @media print {
-  /* Hide the print button when printing */
-  #print-btn {
-    display: none;
-  }
-
-  /* Prevent images or their containers from splitting in half */
-  .container, 
-  .container img, 
-  figure {
-    break-inside: avoid;
-    page-break-inside: avoid; /* For older browsers */
-  }
-
-  /* Optional: prevent body or card sections from awkward splits */
-  p, h1, h2 {
-    break-inside: avoid;
-  }
-}
-
+            .no-print {
+                display: none !important;
+            }
+            /* Prevent images and figure blocks from splitting across pages */
+            img, figure, .printable-image-container {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+.printable-image-container {
+            margin-bottom: 20px;
+        }
 
     #pdf-content {
         /* Ensure content doesn't break in the middle of text/images */
@@ -186,6 +179,8 @@ position: absolute;
 <body>
 <h4>Company Logo<br>Company Address</h4>
  <div class="container">
+<button class="no-print" onclick="window.print()">Print Page</button>
+
         <h1><br>Field Report</h1>
 <h2>We are please to present the following report</p>
 
@@ -220,7 +215,8 @@ position: absolute;
 </div>
 
 <div class="flex-container">
-
+ <div class="printable-image-container">
+   
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
 
@@ -228,7 +224,6 @@ position: absolute;
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
 <% }); %>
 <% } %>
-
 
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
@@ -242,6 +237,7 @@ position: absolute;
 
 
 <% } else { %>
+ 
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
 <img src="data:<%= item.reports.imgg.img1.contentType %>;base64,<%= item.reports.imgg.img1.data.toString('base64') %>"/>
@@ -253,6 +249,7 @@ position: absolute;
 
 <% } %>
 <% }); %>
+</div>
         <% } %>
 <script src="../middleware/date.js" defer></script>
 </div>
