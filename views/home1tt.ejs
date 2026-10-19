@@ -28,7 +28,7 @@ align-items: center;
                 display: none !important;
             }
             /* Prevent images and figure blocks from splitting across pages */
-            img, figure, .printable-image-container {
+            img, figure, .flex-container {
                 break-inside: avoid;
                 page-break-inside: avoid;
             }
@@ -218,35 +218,32 @@ position: absolute;
  
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
-<div class="printable-image-container">
-   
+
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
-</div>
+
 <% }); %>
 <% } %>
 
 <% if (items.length > 0) { %>
             <% items.forEach(item => { %>
 <% if(!item.reports.imgg.img1.description) { %>
-<div class="printable-image-container">
-   
+
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
-</div>
+
 
 
 
 
 <% } else { %>
- <div class="printable-image-container">
-   
+ 
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
 <img src="data:<%= item.reports.imgg.img1.contentType %>;base64,<%= item.reports.imgg.img1.data.toString('base64') %>"/>
 <p><%= item.address %><br><%= item.reports.imgg.img1.description %></p>
 
-</div>
+
 
  
 
@@ -256,7 +253,7 @@ position: absolute;
         <% } %>
 <script src="../middleware/date.js" defer></script>
 </div>
-</div>
+
 <button class="myButton">Submit Report</button>
 
 </body>
