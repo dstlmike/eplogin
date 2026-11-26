@@ -221,6 +221,8 @@ position: absolute;
 <div class="flex-container">
  
 <% if (items.length >= 0) { %>
+
+<% items %>
             <% items.forEach(item => { %>
 
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
