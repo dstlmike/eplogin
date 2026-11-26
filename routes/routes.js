@@ -191,7 +191,7 @@ router.get('/posts/:slug', async (req, res) => {
 
 var Companyy = require('../middleware/model.js');
 
-app.get('/:address', loggedIn, async function(req, res){
+app.get('/:address', async function(req, res){
 Companyy.findOne({'address': req.params.address}) //company.name depends upon the schema you set.
  .then(function(address){
    if (address)
