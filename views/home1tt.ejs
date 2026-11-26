@@ -222,10 +222,11 @@ position: absolute;
  
 <% if (items.length >= 0) { %>
 
-<% items %>
             <% items.forEach(item => { %>
 
                     <img src="data:<%= item.reports.imgg.img.contentType %>;base64,<%= item.reports.imgg.img.data.toString('base64') %>"/>
+
+<% item %>
 <p><%= item.address %><br><%= item.reports.imgg.img.description %></p>
 
 <% }); %>
