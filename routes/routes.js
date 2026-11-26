@@ -194,16 +194,16 @@ var Companyy = require('../middleware/model.js');
 app.get('/address/:address', loggedIn, async function(req, res){
 Companyy.findOne({'address': req.params.address}) //company.name depends upon the schema you set.
  .then(function(address){
-   if (address)
+   if (address) {
    // return res.send({success: true, data: address}); //return company as an object containing the queried company document.
 return res.render('address.ejs', { address: data });
 
 
 
       
-   else 
+   } else { 
     return res.send({success: false, error: 'Company not found'});
-
+   }
  })
  .catch(function(err){
   if (err) res.send({success: false, error: err}); 
