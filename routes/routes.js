@@ -190,6 +190,23 @@ router.get('/posts/:slug', async (req, res) => {
 
 //module.exports = router;
 
+const Company = require('../middleware/model.js');
+
+app.get('/:address', loggedIn, async function(req, res){
+Company.findOne({'address': req.params.address}) //company.name depends upon the schema you set.
+ .then(function(address){
+   if (address)
+    return res.send({success: true, data: address}); //return company as an object containing the queried company document.
+
+   else 
+    return res.send({success: false, error: 'Company not found'});
+
+ })
+ .catch(function(err){
+  if (err) res.send({success: false, error: err}); 
+ });
+});
+
 
 
 
