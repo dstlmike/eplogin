@@ -213,6 +213,24 @@ Companyy.findOne({'address': req.params.address}) //company.name depends upon th
 
 
 
+app.get('/items', async (req, res) => {
+  try {
+     var Companyy = require('../middleware/model.js');
+
+    const items = await db.collection('items').find().toArray();
+    
+    // 'index' looks for views/index.ejs
+    // { items: items } makes the 'items' variable available inside the HTML
+    res.render('address.ejs', { address: address }); 
+  } catch (err) {
+    res.status(500).send('Error fetching data');
+  }
+});
+
+
+
+
+
 app.get('/url', loggedIn, (req, res) => {
   var name = "req.body.name";
   res.render('url.ejs') // { items: data })
