@@ -217,10 +217,15 @@ app.get('/items', async (req, res) => {
   try {
      var Companyy = require('../middleware/model.js');
 
-    const items = await db.collection('items').find().toArray();
+  //  const items = await db.collection('items').find().toArray();
     
     // 'index' looks for views/index.ejs
     // { items: items } makes the 'items' variable available inside the HTML
+
+      .then(data => {
+          res.render('address.ejs', { address: data })
+      })
+      .catch(err => console.log(err));
     res.render('address.ejs', { address: address }); 
   } catch (err) {
     res.status(500).send('Error fetching data');
