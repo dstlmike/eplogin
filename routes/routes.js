@@ -196,7 +196,7 @@ Companyy.findOne({'address': req.params.address}) //company.name depends upon th
  .then(function(address){
    if (address) {
   //  return res.send({success: true, data: address}); //return company as an object containing the queried company document.
- rerurn res.render('address.ejs', { data: address });
+ return res.render('address.ejs', { data: address });
 
 
 
