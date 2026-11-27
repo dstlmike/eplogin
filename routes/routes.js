@@ -195,8 +195,8 @@ app.get('/address/:address', loggedIn, async function(req, res){
 Companyy.findOne({'address': req.params.address}) //company.name depends upon the schema you set.
  .then(function(address){
    if (address) {
-    return res.send({success: true, data: address}); //return company as an object containing the queried company document.
-// res.render('address.ejs', { address: data });
+  //  return res.send({success: true, data: address}); //return company as an object containing the queried company document.
+ rerurn res.render('address.ejs', { data: address });
 
 
 
